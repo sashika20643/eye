@@ -76,7 +76,7 @@
                 <div class="col-lg-2 col-4">
                     <!-- logo start -->
                     <div class="logo">
-                        <a href="index.html"><img src="{{asset('assets/images/logo/logo.png')}}" alt=""></a>
+                        <a href="index.html"><img src="{{asset('common/logo/logo1.png')}}" style="max-width:150px" alt=""></a>
                     </div>
                     <!-- logo end -->
                 </div>

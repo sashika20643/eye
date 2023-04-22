@@ -57,7 +57,7 @@
         <span class="nav-link">Navigation</span>
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" href="/home">
+        <a class="nav-link" href="/admin">
           <span class="menu-icon">
             <i class="mdi mdi-speedometer"></i>
           </span>
@@ -69,24 +69,42 @@
           <span class="menu-icon">
             <i class="mdi mdi-laptop"></i>
           </span>
-          <span class="menu-title">Posts</span>
+          <span class="menu-title">Frames</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="ui-basic">
+
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="">Create New Post </a></li>
-            <li class="nav-item"> <a class="nav-link" href="">All Posts</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('addframeview')}}">Add Frame </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('allframe')}}">All Frames</a></li>
+           <li class="nav-item"> <a class="nav-link" href="{{route('catagories')}}">Catagories</a></li>
+           <li class="nav-item"> <a class="nav-link" href="{{route('Colorcatagories')}}">Colors</a></li>
+
+
           </ul>
         </div>
       </li>
+
       <li class="nav-item menu-items">
-        <a class="nav-link" href="">
+        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <span class="menu-icon">
-            <i class="mdi mdi-playlist-play"></i>
+            <i class="mdi mdi-laptop"></i>
           </span>
-          <span class="menu-title">Catagories</span>
+          <span class="menu-title">Lenses</span>
+          <i class="menu-arrow"></i>
         </a>
+        <div class="collapse" id="ui-basic">
+
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{route('addlenseview')}}">Add Lens </a></li>
+            <li class="nav-item"> <a class="nav-link" href="">All Lens</a></li>
+
+
+
+          </ul>
+        </div>
       </li>
+
       <li class="nav-item menu-items">
         <a class="nav-link" href="">
           <span class="menu-icon">

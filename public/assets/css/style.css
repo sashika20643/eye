@@ -14,7 +14,7 @@
         - Common Classes
         - Section Padding
     02. Element
-        - Button Style 
+        - Button Style
         - Section Title Css
         - Breadcrumb Style
         - Paginatoin Css
@@ -173,7 +173,7 @@ ul {
   max-width: 1200px;
 }
 
-/*-- 
+/*--
     - Common Classes
 -----------------------------------------*/
 .fix {
@@ -220,7 +220,7 @@ ul {
   border-top: 1px solid #e5e5e5;
 }
 
-/*-- 
+/*--
     - Background color
 -----------------------------------------*/
 .bg-white {
@@ -239,14 +239,14 @@ ul {
   background: #1D1D1D;
 }
 
-/*-- 
+/*--
     - color
 -----------------------------------------*/
 .c-blue {
   color: #8a8f6a;
 }
 
-/*-- 
+/*--
     - Input Placeholder
 -----------------------------------------*/
 input:-moz-placeholder, textarea:-moz-placeholder {
@@ -269,8 +269,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
-/*-- 
-    Scroll Up 
+/*--
+    Scroll Up
 -----------------------------------------*/
 #scrollUp {
   width: 40px;
@@ -298,7 +298,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
           animation-iteration-count: infinite;
 }
 
-/*-- 
+/*--
     - Main Wrapper
 -----------------------------------------*/
 .main-wrapper.header-transparent {
@@ -306,7 +306,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   margin: 0 !important;
 }
 
-/*-- 
+/*--
     - Section Padding
 -------------------------------------*/
 .section-ptb {
@@ -2670,18 +2670,23 @@ body.box-body {
           transform: scale(1.08);
 }
 .categories-list-post-item .category-inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+  padding: 10px;
+    position: absolute;
+  top: 100%;
+  left: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transform: translateX(-100%) translateY(-100%);
+          transform: translateX(-100%) translateY(-100%);
   background: #ddd;
   padding: 0px 33px;
-  line-height: 61px;
+min-height: 70px;
   background: #fff;
-  font-weight: 500;
+  font-weight: 700;
   color: #323232;
-  font-size: 14px;
+  font-size: 15px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -2711,8 +2716,8 @@ body.box-body {
   display: inline-block;
 }
 
-/*-- 
-   - service css 
+/*--
+   - service css
 -------------------------------*/
 .single-service-item {
   display: -webkit-box;
@@ -3274,7 +3279,7 @@ body.box-body {
   }
 }
 
-/*-- 
+/*--
     08. Mobile Menu Css
 -------------------------*/
 .mobile-menu {
@@ -5017,7 +5022,7 @@ body.box-body {
   margin-top: 5px;
 }
 
-/*-- 
+/*--
    15. Checkout Page Css
 ------------------------------*/
 .coupon-accordion h3 {
@@ -5910,7 +5915,7 @@ body.box-body {
   padding: 8px 30px;
 }
 
-/*--    
+/*--
     21. Error 404 Page Css
 ---------------------------*/
 .search-error-wrapper h1 {

@@ -27,7 +27,7 @@
 <div class="d-flex justify-content-center flex-column text-center">
     <h2 class="text-center mb-5">Catogories</h2>
 
-        <form action="{{route('AddCatagory')}}" method="POST">
+        <form action="{{route('AddColorCatagory')}}" method="POST">
             @csrf
             <input type="text" name="cname">
             <input type="submit" value="create" class="btn btn-outline-success">
@@ -65,7 +65,7 @@
                             <div class="btn btn-outline-success">Edit</div>
                           </td>
                           <td>
-                            <a href="{{route('DeleteCatagory',$cat->id)}}" onclick="confirmation(event)" class="btn btn-outline-danger">Delete</a>
+                            <a href="{{route('DeleteColorCatagory',$cat->id)}}" onclick="confirmation(event)" class="btn btn-outline-danger">Delete</a>
                           </td>
                         </tr>
                         @endforeach
