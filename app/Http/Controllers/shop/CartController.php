@@ -41,7 +41,7 @@ if($request->type=='lens'){
 
                 $cartItems = $request->session()->get('cart.items');
 
-                dd( $cartItems);
+       return view('shop.pages.cart',compact('cartItems'));
 
             }
 
