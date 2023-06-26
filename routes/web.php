@@ -9,6 +9,8 @@ use App\http\Controllers\HomeController;
 use App\http\Controllers\Admin\LenseController;
 use App\http\Controllers\Admin\FrameController;
 use App\http\Controllers\shop\PageController;
+use App\http\Controllers\shop\CartController;
+
 
 
 
@@ -39,15 +41,16 @@ Route::middleware([
     route::get('/home',[HomeController::class,'redirect']);
 
     Route::get('/dashboard', function () {
+        return redirect('/admin');
         return view('dashboard');
     })->name('dashboard');
 
-Route::middleware([
+Route::prefix('admin')->middleware([
   'isAdmin'
 ])->group(function () {
 //...........................admin.............
 
-    Route::get('/admin', function () {
+    Route::get('/', function () {
         return view('Admin.pages.index');
     });
     //.....................category......
@@ -87,6 +90,16 @@ Route::prefix('lense')->group(function () {
 
 });
 
+Route::prefix('cart')->group(function () {
+    route::post('/add/{id}',[ShopController::class,'addtocart'])->name('addtocart');
+    route::get('/',[ShopController::class,'showcart'])->name('cart');
+    route::get('/dele/{id}',[ShopController::class,'DeleteCart'])->name('DeleteCart');
+    route::get('/Addqty/{id}',[ShopController::class,'Addqty'])->name('Addqty');
+    route::get('/Minqty/{id}',[ShopController::class,'Minqty'])->name('Minqty');
+
+
+});
+
 });
 
 
@@ -98,7 +111,28 @@ Route::prefix('lense')->group(function () {
 
 
 route::get('/',[PageController::class,'index'])->name('shop.index');
-route::get('/lens',[PageController::class,'lens'])->name('shop.lens');
+route::get('/lenses/colorcontactlences',[PageController::class,'clens'])->name('shop.cllens');
+route::get('/lenses/computerproductionglasses',[PageController::class,'cpglass'])->name('shop.cpglass');
+route::get('/selectframes/{id}',[PageController::class,'selectframes'])->name('shop.selectframes');
+route::get('/frames',[PageController::class,'frames'])->name('shop.frames');
+route::post('/singleframe',[PageController::class,'singleframe'])->name('shop.singleframe');
+route::post('/singleLens',[PageController::class,'singleLens'])->name('shop.singleLens');
+
+
+
+route::get('/processOrder/{id}',[PageController::class,'processOrder'])->name('shop.processOrder');
+
+//...........................cart.....................
+route::post('/addtocart/{id}',[CartController::class,'addtocart'])->name('shop.addcart');
+Route::get('/showcart', [CartController::class,'showcart'])->name('showcart');
+Route::get('/clearcart', [CartController::class,'clearCart'])->name('clearcart');
+Route::post('/cart/{itemId}/delete', [CartController::class, 'deleteCartItem'])->name('cart.delete');
+
+
+
+
+
+
 
 
 

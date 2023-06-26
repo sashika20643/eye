@@ -76,7 +76,7 @@
                 <div class="col-lg-2 col-4">
                     <!-- logo start -->
                     <div class="logo">
-                        <a href="index.html"><img src="{{asset('common/logo/logo1.png')}}" style="max-width:150px" alt=""></a>
+                        <a href="/"><img src="{{asset('common/logo/logo1.png')}}" style="max-width:150px" alt=""></a>
                     </div>
                     <!-- logo end -->
                 </div>
@@ -85,7 +85,7 @@
                     <div class="main-menu-area">
                         <nav class="main-navigation">
                             <ul>
-                                <li  class="active"><a href="index.html">Home  <i class="fa fa-angle-down"></i></a>
+                                <li  class="active"><a href="/">Home  <i class="fa fa-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="index.html">Home Page 1</a></li>
                                         <li><a href="index-2.html">Home Page 2</a></li>
@@ -195,60 +195,60 @@
                         <div class="shoping-cart">
                             <div class="btn-group">
                                 <!-- Mini Cart Button start -->
-                                <button class="dropdown-toggle"><i class="fa fa-shopping-cart"></i> Cart (2)</button>
+                                <button class="dropdown-toggle"><i class="fa fa-shopping-cart"></i> Cart (
+                                    @if(isset($cartItems))
+                                        {{count($cartItems)}}
+
+                                    @else
+                                      0
+                                    @endif
+                                     )</button>
                                 <!-- Mini Cart button end -->
 
                                 <!-- Mini Cart wrap start -->
                                 <div class="dropdown-menu mini-cart-wrap">
                                     <div class="shopping-cart-content">
                                         <ul class="mini-cart-content">
-                                            <!-- Mini-Cart-item start -->
-                                            <li class="mini-cart-item">
-                                                <div class="mini-cart-product-img">
-                                                    <a href="#"><img src="{{asset('assets/images/cart/1.jpg')}}" alt=""></a>
-                                                    <span class="product-quantity">1x</span>
-                                                </div>
-                                                <div class="mini-cart-product-desc">
-                                                    <h3><a href="#">Printed Summer Dress</a></h3>
-                                                    <div class="price-box">
-                                                        <span class="new-price">$55.21</span>
-                                                    </div>
-                                                    <div class="size">
-                                                        Size: S
-                                                    </div>
-                                                </div>
-                                                <div class="remove-from-cart">
-                                                    <a href="#" title="Remove"><i class="fa fa-trash"></i></a>
-                                                </div>
-                                            </li>
-                                            <!-- Mini-Cart-item end -->
+                                            @php
+                                                $tot=0;
+                                            @endphp
+                                            @if(isset($cartItems))
 
-                                            <!-- Mini-Cart-item start -->
-                                            <li class="mini-cart-item">
-                                                <div class="mini-cart-product-img">
-                                                    <a href="#"><img src="{{asset('assets/images/cart/3.jpg')}}" alt=""></a>
-                                                    <span class="product-quantity">1x</span>
-                                                </div>
-                                                <div class="mini-cart-product-desc">
-                                                    <h3><a href="#">Faded Sleeves T-shirt</a></h3>
-                                                    <div class="price-box">
-                                                        <span class="new-price">$72.21</span>
+                                            @foreach($cartItems as $itemId => $item)
+                                                <!-- Mini-Cart-item start -->
+                                                @php
+                                                    $tot+=$item['product']->discount_price* $item['quantity'];
+                                                @endphp
+                                                <li class="mini-cart-item">
+                                                    <div class="mini-cart-product-img">
+                                                        <a href="#"><img src="{{ asset('Lense/'.$item['product']->image) }}" alt=""></a>
+                                                        <span class="product-quantity">{{ $item['quantity'] }}x</span>
                                                     </div>
-                                                    <div class="size">
-                                                        Size: M
+                                                    <div class="mini-cart-product-desc">
+                                                        <h3><a href="#">{{ $item['product']->title }}</a></h3>
+                                                        <div class="price-box">
+                                                            <span class="new-price">RS.{{ $item['product']->discount_price }}</span>
+                                                        </div>
+                                                        <div class="size">
+                                                            Quantity: {{ $item['quantity'] }}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="remove-from-cart">
-                                                    <a href="#" title="Remove"><i class="fa fa-trash"></i></a>
-                                                </div>
-                                            </li>
-                                            <!-- Mini-Cart-item end -->
+                                                    <div class="remove-from-cart">
 
+        <form action="{{ route('cart.delete', $itemId) }}" method="POST">
+            @csrf
+                                                        <button type="submit" title="Remove"><i class="fa fa-trash"></i></button>
+        </form>
+                                                    </div>
+                                                </li>
+                                                <!-- Mini-Cart-item end -->
+                                            @endforeach
+@endif
                                             <li>
                                                 <!-- shopping-cart-total start -->
                                                 <div class="shopping-cart-total">
-                                                    <h4>Sub-Total : <span>$127.42</span></h4>
-                                                    <h4>Total : <span>$127.42</span></h4>
+                                                    <h4>Sub-Total : <span>{{$tot}}</span></h4>
+
                                                 </div>
                                                 <!-- shopping-cart-total end -->
                                             </li>
@@ -263,6 +263,7 @@
                                         </ul>
                                     </div>
                                 </div>
+
                                 <!-- Mini Cart wrap End -->
                             </div>
                         </div>

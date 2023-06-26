@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Lcat;
 use App\Models\Lense;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class LenseController extends Controller
@@ -41,6 +42,21 @@ class LenseController extends Controller
       $imagename=time().'.'.$image->getClientOriginalExtension();
       $request->image->move('Lense',$imagename);
       $product->image=$imagename;
+
+      for ($i=1; $i <5 ; $i++) {
+
+
+        # code...
+
+        if ($request->hasFile('image'.$i)) {
+            $images = $request->{'image'.$i} ;
+            $imagename = time().$i.'.'.$images->getClientOriginalExtension();
+
+            $images->move('Frame', $imagename);
+            $product->{'image'.$i} = $imagename;
+        }
+
+        }
       $product->save();
       $checkedCheckboxes = $request->input('checkbox');
 
@@ -59,7 +75,10 @@ class LenseController extends Controller
     public function DeleteProduct($id){
 
         $product=Lense::find($id);
-        unlink("Lense/".$product->first()->image);
+        unlink("Lense/".$product->image);
+        for ($i=1; $i <5 ; $i++) {
+
+        }
         $product->delete();
         Alert::success('Lense deleted successfully',"You have deleted the Lense");
 

@@ -42,10 +42,10 @@
 </td>
 
     <td>
-        <a href="{{asset('Frame/'.$item->image)}}" target="blank">
+        <a href="{{asset('Lense/'.$item->image)}}" target="blank">
 
 
-        <img src="{{asset('Frame/'.$item->image)}}" alt="logo" />
+        <img src="{{asset('Lense/'.$item->image)}}" alt="logo" />
     </a>
     </td>
 <td>
@@ -65,10 +65,10 @@
                     {{$item->discount_price}}
                     </td>
                   <td>
-                    <a href="{{route('Editframe',$item->id)}}" class="btn btn-outline-success">Edit</a>
+                    <a href="{{route('Editlense',$item->id)}}" class="btn btn-outline-success">Edit</a>
                   </td>
                   <td>
-                    <a href="{{route('Deleteframe',$item->id)}}" onclick="confirmation(event)" class="btn btn-outline-danger">Delete</a>
+                    <a href="{{route('Deletelense',$item->id)}}" onclick="confirmation(event)" class="btn btn-outline-danger">Delete</a>
                   </td>
                 </tr>
                 @endforeach

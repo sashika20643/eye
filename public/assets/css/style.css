@@ -66,6 +66,8 @@ html, body {
   height: 100%;
 }
 
+
+
 body {
   background-color: #fff;
   line-height: 26px;
@@ -2672,7 +2674,7 @@ body.box-body {
 .categories-list-post-item .category-inner {
   padding: 10px;
     position: absolute;
-  top: 100%;
+  top: 80%;
   left: 100%;
   width: 100%;
   display: flex;

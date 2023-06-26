@@ -2,6 +2,54 @@
 <html class="no-js" lang="zxx">
     <head>
         @include('shop.components.head')
+        <style>
+            .loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.loading-progress {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 10px;
+  background-color: #F50057;
+  position: relative;
+  margin-right: 10px;
+}
+
+.count {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.loading-text {
+  color: #F50057;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+        </style>
 
     </head>
 
@@ -11,6 +59,8 @@
 <div class="main-wrapper">
     <!-- header-area start -->
 @include('shop.components.header')
+@include('shop.components.pogressbar')
+
     <!-- Header-area end -->
     @yield('content')
 

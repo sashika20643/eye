@@ -81,25 +81,7 @@
 
               </div>
 
-              <div class="form-group " >
-                <span class="mb-6" style="margin-bottom: 3rem">Colors</span>
-                <div class="d-flex flex-wrap align-items-center mt-2">
 
-
-                @foreach ($colors as $cat )
-                 @php
-                     $cls = $product->colors->pluck('id')->toArray();
-                 @endphp
-                    @if (in_array($cat->id,$cls))
-<input type="checkbox" name="checkbox[]" checked id="{{$cat->name}}" value="{{$cat->id}}">
-@else
-<input type="checkbox" name="checkbox[]" id="{{$cat->name}}" value="{{$cat->id}}">
-
-@endif
-<label for="{{$cat->name}}" style="margin-bottom:0; margin-right:3px; ">{{$cat->name}}</label>
-
-                @endforeach
-            </div>
 
               <div class="form-group mt-3">
                 <label for="exampleInputUsername1">Price</label>

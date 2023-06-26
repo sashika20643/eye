@@ -88,8 +88,18 @@
                 <label for="exampleInputUsername1">discount_price</label>
                 <input type="text" class="form-control" id="exampleInputUsername1" placeholder="discount_price" name="discount_price">
               </div>
-            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              <h4>Image gallery</h4>
+              <hr>
 
+@for ($i=0;$i<4;$i++)
+<div class="form-group">
+    <label for="exampleInputUsername1">Image{{$i+1}}</label>
+    <input type="file" class="form-control" id="exampleInputUsername1" placeholder="Productname" name="image{{$i+1}}">
+  </div>
+
+@endfor
+
+<button type="submit" class="btn btn-primary mr-2">Submit</button>
           </form>
         </div>
       </div>

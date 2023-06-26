@@ -31,7 +31,7 @@ class FrameController extends Controller
             'image' =>'required',
             'quantity' =>'required',
             'price' =>'required',
-            'frame'=>'required',
+
             'discount_price' =>'required|min:3',
         ]);
 
@@ -47,6 +47,21 @@ class FrameController extends Controller
       $imagename=time().'.'.$image->getClientOriginalExtension();
       $request->image->move('Frame',$imagename);
       $product->image=$imagename;
+for ($i=1; $i <5 ; $i++) {
+
+
+    # code...
+
+    if ($request->hasFile('image'.$i)) {
+        $images = $request->{'image'.$i} ;
+        $imagename = time().$i.'.'.$images->getClientOriginalExtension();
+
+        $images->move('Frame', $imagename);
+        $product->{'image'.$i} = $imagename;
+    }
+
+    }
+
       $product->save();
       $checkedCheckboxes = $request->input('checkbox');
       foreach ($checkedCheckboxes as $checkboxValue) {
@@ -71,7 +86,8 @@ class FrameController extends Controller
     public function DeleteProduct($id){
 
         $product=Frame::find($id);
-        unlink("Frame/".$product->first()->image);
+
+        unlink("Frame/".$product->image);
         $product->delete();
         Alert::success('Frame deleted successfully',"You have deleted the Frame");
 
@@ -134,6 +150,7 @@ class FrameController extends Controller
         return view('Admin.pages.frames.showframe')->with('products',$products);
 
             }
+
 
 
 }

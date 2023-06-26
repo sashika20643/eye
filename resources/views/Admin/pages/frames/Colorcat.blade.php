@@ -29,7 +29,8 @@
 
         <form action="{{route('AddColorCatagory')}}" method="POST">
             @csrf
-            <input type="text" name="cname">
+            <input type="text" name="cname" placeholder="Name">
+            <input type="text" name="ccode" placeholder="Color code">
             <input type="submit" value="create" class="btn btn-outline-success">
 
         </form>
@@ -45,6 +46,7 @@
 
                           <th> Id </th>
                           <th> Catagory Name </th>
+                          <th> Color code </th>
                           <th> Update </th>
                           <th> Delete </th>
 
@@ -60,6 +62,9 @@
 </td>
 <td>
     {{$cat->name}}
+</td>
+<td>
+    {{$cat->color_code}}
 </td>
                           <td>
                             <div class="btn btn-outline-success">Edit</div>

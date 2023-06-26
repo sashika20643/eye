@@ -109,7 +109,36 @@
                 <label for="exampleInputUsername1">Discount_price</label>
                 <input type="text" class="form-control" id="exampleInputUsername1" placeholder="discount_price" value="{{$product->discount_price}}" name="discount_price">
               </div>
-              <div class="d-flex justify-content-between">
+              <div class="">
+
+
+                <h4>Image gallery</h4>
+
+                <hr>
+<div class="imgrow d-flex justify-content-between">
+<div>
+    <img src="{{asset('Frame/'.$product->image1)}}" alt="logo" class="mr-1" style="width: 100px;height:100px"/>
+    <p>Image1</p>
+</div>
+<div>
+    <img src="{{asset('Frame/'.$product->image2)}}" alt="logo" class="mr-1"  style="width: 100px;height:100px"/>
+    <p>Image2</p>
+</div>
+  <div>  <img src="{{asset('Frame/'.$product->image3)}}" alt="logo" class="mr-1" style="width: 100px;height:100px"/>
+    <p>Image3</p>
+</div>
+ <div>   <img src="{{asset('Frame/'.$product->image4)}}" alt="logo"  style="width: 100px;height:100px"/>
+    <p>Image4</p>
+</div>
+</div>
+  @for ($i=0;$i<4;$i++)
+  <div class="form-group">
+      <label for="exampleInputUsername1">Image{{$i+1}}</label>
+      <input type="file" class="form-control" id="exampleInputUsername1" placeholder="Productname" name="image{{$i+1}}">
+    </div>
+
+  @endfor
+
               <button type="submit" class="btn btn-warning mr-2">Cancel</button>
             <button type="submit" class="btn btn-primary mr-2">Update</button>
         </div>

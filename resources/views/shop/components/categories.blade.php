@@ -5,7 +5,7 @@
                 <!-- categories-list-post-item start -->
                 <div class="categories-list-post-item">
                    <img src="{{asset('assets/images/category/1(2).png')}}" alt="">
-                   <a href="#" class="category-inner">computer production glass</a>
+                   <a href="{{route('shop.cpglass')}}" class="category-inner">computer production glass</a>
                 </div>
                 <!-- categories-list-post-item end -->
             </div>
@@ -29,7 +29,7 @@
                 <!-- categories-list-post-item start -->
                 <div class="categories-list-post-item">
                    <img src="{{asset('assets/images/category/4.png')}}" alt="">
-                   <a href="#" class="category-inner"> colour contact lenses</a>
+                   <a href="{{route('shop.cllens')}}" class="category-inner" > colour contact lenses</a>
                 </div>
                 <!-- categories-list-post-item end -->
             </div>
@@ -37,7 +37,7 @@
                 <!-- categories-list-post-item start -->
                 <div class="categories-list-post-item">
                    <img src="{{asset('assets/images/category/1.jpg')}}" alt="">
-                   <a href="#" class="category-inner">Popovers</a>
+                   <a href="#" class="category-inner">Frames</a>
                 </div>
                 <!-- categories-list-post-item end -->
             </div>

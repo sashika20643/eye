@@ -20,6 +20,7 @@ class ColorController extends Controller
         ]);
         $cat=new Color;
         $cat->name=$request->cname;
+        $cat->color_code=$request->ccode;
         $cat->save();
         return redirect()->back()->with('massege','categery added successfully');
     }

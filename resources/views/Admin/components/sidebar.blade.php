@@ -97,7 +97,7 @@
 
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{route('addlenseview')}}">Add Lens </a></li>
-            <li class="nav-item"> <a class="nav-link" href="">All Lens</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('alllense')}}">All Lens</a></li>
 
 
 

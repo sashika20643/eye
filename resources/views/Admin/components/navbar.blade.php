@@ -168,9 +168,9 @@
                   <i class="mdi mdi-logout text-danger"></i>
                 </div>
               </div>
-              <div class="preview-item-content">
-                <p class="preview-subject mb-1" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">Log out</p>
+              <div class="preview-item-content"  onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+                <p class="preview-subject mb-1">Log out</p>
               </div>
             </a>
             <div class="dropdown-divider"></div>
