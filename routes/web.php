@@ -89,13 +89,13 @@ Route::prefix('lense')->group(function () {
     });
 
 });
+//...........................cart.....................
 
 Route::prefix('cart')->group(function () {
-    route::post('/add/{id}',[ShopController::class,'addtocart'])->name('addtocart');
-    route::get('/',[ShopController::class,'showcart'])->name('cart');
-    route::get('/dele/{id}',[ShopController::class,'DeleteCart'])->name('DeleteCart');
-    route::get('/Addqty/{id}',[ShopController::class,'Addqty'])->name('Addqty');
-    route::get('/Minqty/{id}',[ShopController::class,'Minqty'])->name('Minqty');
+    route::post('/addtocart/{id}',[CartController::class,'addtocart'])->name('shop.addcart');
+    Route::get('/showcart', [CartController::class,'showcart'])->name('showcart');
+    Route::get('/clearcart', [CartController::class,'clearCart'])->name('clearcart');
+    Route::post('/cart/{itemId}/delete', [CartController::class, 'deleteCartItem'])->name('cart.delete');
 
 
 });
@@ -122,11 +122,7 @@ route::post('/singleLens',[PageController::class,'singleLens'])->name('shop.sing
 
 route::get('/processOrder/{id}',[PageController::class,'processOrder'])->name('shop.processOrder');
 
-//...........................cart.....................
-route::post('/addtocart/{id}',[CartController::class,'addtocart'])->name('shop.addcart');
-Route::get('/showcart', [CartController::class,'showcart'])->name('showcart');
-Route::get('/clearcart', [CartController::class,'clearCart'])->name('clearcart');
-Route::post('/cart/{itemId}/delete', [CartController::class, 'deleteCartItem'])->name('cart.delete');
+
 
 
 
