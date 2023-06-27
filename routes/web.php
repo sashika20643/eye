@@ -108,8 +108,8 @@ route::get('/selectframes/{id}',[PageController::class,'selectframes'])->name('s
 route::get('/frames',[PageController::class,'frames'])->name('shop.frames');
 route::post('/singleframe',[PageController::class,'singleframe'])->name('shop.singleframe');
 route::post('/singleLens',[PageController::class,'singleLens'])->name('shop.singleLens');
-route::post('/singleframepage/{id}',[PageController::class,'singleframepage'])->name('shop.singleframepage');
-route::post('/singleLenspage/{id}',[PageController::class,'singleLenspage'])->name('shop.singleLenspage');
+route::get('/singleframepage/{id}',[PageController::class,'singleframepage'])->name('shop.singleframepage');
+route::get('/singleLenspage/{id}',[PageController::class,'singleLenspage'])->name('shop.singleLenspage');
 
 
 

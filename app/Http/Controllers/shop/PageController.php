@@ -22,14 +22,14 @@ class PageController extends Controller
     }
 
 
-public function Clens(){
+public function Clens(Request $request){
     $cat=Lcat::all();
     $cartItems = $request->session()->get('cart.items');
     $lenses=Lense::where('catagory','computer production glass')->get();
     return view('shop.pages.ContactLensShop',compact('cat','lenses','cartItems'));
 }
 
-public function Frames(){
+public function Frames(Request $request){
     $cartItems = $request->session()->get('cart.items');
     $colors=color::all();
     $frames=Frame::all();
@@ -37,7 +37,7 @@ public function Frames(){
     return view('shop.pages.frames',compact('colors','frames','catagories'));
 }
 
-public function selectFrames($id){
+public function selectFrames(Request $request, $id){
     $cartItems = $request->session()->get('cart.items');
     $cat=color::all();
     $frames=Frame::all();
@@ -46,7 +46,7 @@ session()->put('selected_lens', $lens);
     return view('shop.pages.selectFrames',compact('cat','frames'));
 }
 
-public function processOrder($id)
+public function processOrder(Request $request,$id)
 {
     $cartItems = $request->session()->get('cart.items');
 
@@ -61,7 +61,7 @@ public function processOrder($id)
 }
 
 
-public function cpglass(){
+public function cpglass(Request $request){
     $cartItems = $request->session()->get('cart.items');
     $cat=Lcat::all();
     $lenses=Lense::where('catagory','computer production glass')->get();
@@ -81,9 +81,9 @@ public function singleframe(Request $request)
 
 public function singleframePage( $id)
 {
-    $frame = Frame::where('id', $id)->first();
+    $product = Frame::where('id', $id)->first();
 
-    return view('shop.pages.singleproduct');
+    return view('shop.pages.singleproductframe',compact('product'));
 
     // Do something with the id value...
 
@@ -92,9 +92,9 @@ public function singleframePage( $id)
 
 public function singleLensPage($id)
 {
-    $lens = Lense::where('id', $id)->first();
+    $product = Lense::where('id', $id)->first();
 
-    return response()->json($lens);
+    return view('shop.pages.singleproductlens',compact('product'));
 
     // Do something with the id value...
 

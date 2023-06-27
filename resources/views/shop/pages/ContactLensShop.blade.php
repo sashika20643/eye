@@ -110,7 +110,7 @@
                                         <!-- single-product-wrap start -->
                                         <div class="single-product-wrap">
                                             <div class="product-image">
-                                                <a href="product-details.html"><img src="{{asset('Lense/'.$lens->image)}}" alt=""></a>
+                                                <a href="{{route('shop.singleLenspage',$lens->id)}}"><img src="{{asset('Lense/'.$lens->image)}}" alt=""></a>
                                                 <span class="label-product label-new">new</span>
                                                 <span class="label-product label-sale">-7%</span>
                                                 <div class="quick_view">
@@ -118,7 +118,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h3><a href="product-details.html">{{$lens->title}}</a></h3>
+                                                <h3><a href="{{route('shop.singleLenspage',$lens->id)}}">{{$lens->title}}</a></h3>
                                                 <div class="price-box">
                                                     <span class="new-price">රු {{$lens->discount_price}}</span>
                                                     <span class="old-price">රු {{$lens->price}}</span>
