@@ -6,28 +6,29 @@
     <div class="content-wraper">
         <div class="container">
             <div class="row single-product-area">
-                <div class="col-lg-5 col-md-6">
+
+                <div class="col-lg-5 col-md-6" >
                    <!-- Product Details Left -->
                     <div class="product-details-left">
                         <div class="product-details-images slider-lg-image-1">
                             <div class="lg-image">
-                                <a href="assets/images/product/1.jpg" class="img-poppu"><img src="assets/images/product/1.jpg" alt="product image"></a>
+                                <a href="{{asset('Lense/'.$product->image)}}" class="img-poppu"><img src="{{asset('Lense/'.$product->image)}}" alt="product image"></a>
                             </div>
                             <div class="lg-image">
-                                <a href="assets/images/product/2.jpg" class="img-poppu"><img src="assets/images/product/2.jpg" alt="product image"></a>
+                                <a href="{{asset('lense/'.$product->image1)}}" class="img-poppu"><img src="{{asset('lense/'.$product->image1)}}" alt="product image"></a>
                             </div>
                             <div class="lg-image">
-                                <a href="assets/images/product/3.jpg" class="img-poppu"><img src="assets/images/product/3.jpg" alt="product image"></a>
+                                <a href="{{asset('lense/'.$product->image2)}}" class="img-poppu"><img src="{{asset('lense/'.$product->image2)}}" alt="product image"></a>
                             </div>
                             <div class="lg-image">
-                                <a href="assets/images/product/4.jpg" class="img-poppu"><img src="assets/images/product/4.jpg" alt="product image"></a>
+                                <a href="{{asset('lense/'.$product->image3)}}" class="img-poppu"><img src="{{asset('lense/'.$product->image3)}}" alt="product image"></a>
                             </div>
                         </div>
                         <div class="product-details-thumbs slider-thumbs-1">
-                            <div class="sm-image"><img src="assets/images/product/1.jpg" alt="product image thumb"></div>
-                            <div class="sm-image"><img src="assets/images/product/2.jpg" alt="product image thumb"></div>
-                            <div class="sm-image"><img src="assets/images/product/3.jpg" alt="product image thumb"></div>
-                            <div class="sm-image"><img src="assets/images/product/4.jpg" alt="product image thumb"></div>
+                            <div class="sm-image"><img src="{{asset('Lense/'.$product->image)}}" alt="product image thumb"></div>
+                            <div class="sm-image"><img src="{{asset('lense/'.$product->image1)}}" alt="product image thumb"></div>
+                            <div class="sm-image"><img src="{{asset('lense/'.$product->image2)}}" alt="product image thumb"></div>
+                            <div class="sm-image"><img src="{{asset('lense/'.$product->image3)}}" alt="product image thumb"></div>
                         </div>
                     </div>
                     <!--// Product Details Left -->
@@ -36,29 +37,14 @@
                 <div class="col-lg-7 col-md-6">
                     <div class="product-details-view-content">
                         <div class="product-info">
-                            <h2>Healthy Melt</h2>
+                            <h2>{{$product->title}}</h2>
                             <div class="price-box">
-                                <span class="old-price">$70.00</span>
-                                <span class="new-price">$76.00</span>
-                                <span class="discount discount-percentage">Save 5%</span>
+                                <span class="old-price">RS {{$product->price}}</span>
+                                <span class="new-price">RS {{$product->discount_price}}</span>
+                                <span class="discount discount-percentage">Save {{($product->price-$product->discount_price)*100/$product->price}}%</span>
                             </div>
-                            <p>100% cotton double printed dress. Black and white striped top and orange high waisted skater skirt bottom. Lorem ipsum dolor sit amet, consectetur adipisicing elit. quibusdam corporis, earum facilis et nostrum dolorum accusamus similique eveniet quia pariatur.</p>
-                            <div class="product-variants">
-                                <div class="produt-variants-size">
-                                    <label>Size</label>
-                                    <select class="form-control-select" >
-                                        <option value="1" title="S" selected="selected">S</option>
-                                        <option value="2" title="M">M</option>
-                                        <option value="3" title="L">L</option>
-                                    </select>
-                                </div>
-                                <div class="produt-variants-color">
-                                    <label>Color</label>
-                                    <ul class="color-list">
-                                        <li><a href="#" class="orange-color active"></a></li>
-                                        <li><a href="#" class="paste-color"></a></li>
-                                    </ul>
-                                </div>
+                            <p>{{$product->description}}</p>
+                            {{--  --}}
                             </div>
                             <div class="single-add-to-cart">
                                 <form action="#" class="cart-quantity">
@@ -74,7 +60,12 @@
                                 </form>
                             </div>
                             <div class="product-availability">
-                              <i class="fa fa-check"></i> In stock
+                              <i class="fa fa-check"></i>
+                              @if($product->quantity>0)
+                              In stock
+                              @else
+                              <span style="color: orange">Out of stock</span>
+                              @endif
                             </div>
                             <div class="product-social-sharing">
                                 <label>Share</label>
@@ -115,18 +106,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+
+
+
             <div class="row">
                 <div class="col-12">
                     <div class="product-details-tab mt--60">
                         <ul role="tablist" class="mb--50 nav">
-                            <li class="active" role="presentation">
-                                <a data-bs-toggle="tab" role="tab" href="#description" class="active">Description</a>
-                            </li>
-                            <li role="presentation">
-                                <a data-bs-toggle="tab" role="tab" href="#sheet">Product Details</a>
-                            </li>
+
                             <li role="presentation">
                                 <a data-bs-toggle="tab" role="tab" href="#reviews">Reviews</a>
                             </li>
@@ -137,21 +124,7 @@
                     <div class="product_details_tab_content tab-content">
                         <!-- Start Single Content -->
                         <div class="product_tab_content tab-pane active" id="description" role="tabpanel">
-                            <div class="product_description_wrap">
-                                <div class="product_desc mb--30">
-                                    <h2 class="title_3">Details</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis noexercit ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.</p>
-                                </div>
-                                <div class="pro_feature">
-                                    <h2 class="title_3">Features</h2>
-                                    <ul class="feature_list">
-                                        <li><a href="#"><i class="fa fa-play"></i>Duis aute irure dolor in reprehenderit in voluptate velit esse</a></li>
-                                        <li><a href="#"><i class="fa fa-play"></i>Irure dolor in reprehenderit in voluptate velit esse</a></li>
-                                        <li><a href="#"><i class="fa fa-play"></i>Sed do eiusmod tempor incididunt ut labore et </a></li>
-                                        <li><a href="#"><i class="fa fa-play"></i>Nisi ut aliquip ex ea commodo consequat.</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+
                         </div>
                         <!-- End Single Content -->
                         <!-- Start Single Content -->
@@ -273,5 +246,6 @@
             </div>
         </div>
     </div>
+</div>
     @endsection
     <!-- conten
